@@ -1,0 +1,7 @@
+nfq_weather_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: NfqWeatherBundle:Default:index }
+
+nfq_weather_get:
+    path:     /get
+    defaults: { _controller: NfqWeatherBundle:Weather:index }
