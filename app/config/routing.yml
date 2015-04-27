@@ -1,3 +1,7 @@
+nfq_library:
+    resource: "@NfqLibraryBundle/Resources/config/routing.yml"
+    prefix:   /
+
 nfq_weather:
     resource: "@NfqWeatherBundle/Resources/config/routing.yml"
     prefix:   /

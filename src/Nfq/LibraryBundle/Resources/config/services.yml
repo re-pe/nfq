@@ -1,0 +1,9 @@
+services:
+   book_data_parser:
+        class: Nfq\LibraryBundle\BookDataParser
+        arguments: ["@google_books_api"]
+   google_books_api:
+        class: Nfq\LibraryBundle\BookDataProviders\GoogleBooksAPI
+#    nfq_library.example:
+#        class: Nfq\LibraryBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
