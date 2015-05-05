@@ -1,6 +1,10 @@
+default_index:
+    path:     /
+    defaults: { _controller: NfqLibraryBundle:Default:index }
+
 default_index_hello_name:
     path:     /hello/{name}
-    defaults: { _controller: NfqLibraryBundle:Default:index }
+    defaults: { _controller: NfqLibraryBundle:Default:hello }
     
 bookdata_isbn:
     path:     /bookdata/{isbn}

@@ -1,1 +1,14 @@
-Hello {{ name }}!
+Hello
+<script>
+   function gotourl(id){
+       if (id.value === ''){
+           document.getElementById('rediect').setAttribute("href", '../app_dev.php/search');
+       } else {
+           var keyword = '../app_dev.php/search/' + id.value;
+           document.getElementById('redirect').setAttribute("href", keyword);
+       }
+   }
+</script>
+<input type="text" id="keyword" oninput='gotourl(this)' />
+<a id="redirect" href='../app_dev.php/search'>Submit</a>
+
