@@ -80,4 +80,32 @@ class Books
     {
         return $this->owner;
     }
+    /**
+     * @var \DateTime
+     */
+    private $addedAt;
+
+
+    /**
+     * Set addedAt
+     *
+     * @param \DateTime $addedAt
+     * @return Books
+     */
+    public function setAddedAt($addedAt)
+    {
+        $this->addedAt = $addedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get addedAt
+     *
+     * @return \DateTime 
+     */
+    public function getAddedAt()
+    {
+        return $this->addedAt;
+    }
 }

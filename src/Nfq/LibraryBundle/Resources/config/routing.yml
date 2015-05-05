@@ -1,7 +1,23 @@
-nfq_library_homepage:
+default_index_hello_name:
     path:     /hello/{name}
     defaults: { _controller: NfqLibraryBundle:Default:index }
     
-nfq_book_data:
+bookdata_isbn:
     path:     /bookdata/{isbn}
     defaults: { _controller: NfqLibraryBundle:BookData:index }
+
+booklist_books:
+    path:     /books
+    defaults: { _controller: NfqLibraryBundle:BookList:books }
+    
+booklist_books_type:
+    path:     /books/{type}
+    defaults: { _controller: NfqLibraryBundle:BookList:books }
+
+booklist_search:
+    path:     /search
+    defaults: { _controller: NfqLibraryBundle:BookList:search }
+
+booklist_search_keyword:
+    path:     /search/{keyword}
+    defaults: { _controller: NfqLibraryBundle:BookList:search }
