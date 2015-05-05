@@ -1,6 +1,6 @@
 Hello
 <script>
-   function gotourl(id){
+   function setHref(id){
        if (id.value === ''){
            document.getElementById('rediect').setAttribute("href", '../app_dev.php/search');
        } else {
@@ -9,6 +9,6 @@ Hello
        }
    }
 </script>
-<input type="text" id="keyword" oninput='gotourl(this)' />
+<input type="text" id="keyword" oninput='setHref(this)' />
 <a id="redirect" href='../app_dev.php/search'>Submit</a>
 
