@@ -4,6 +4,7 @@ namespace Nfq\LibraryBundle\Controller;
 
 use Nfq\LibraryBundle\BookDataSet;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class BookListController extends Controller
@@ -57,6 +58,13 @@ class BookListController extends Controller
         $bookList = $query->getArrayResult();
         $book_data_str = print_r($bookList, true);
         return new Response('<html><body><pre>' . $book_data_str . '</pre></body></html>');
+    }
+
+    public function frmsrchAction()
+    {
+        $request = Request::createFromGlobals();
+        $keyword = $request->request->get('keyword');
+        return $this->searchAction($keyword);
     }
 
 } 
