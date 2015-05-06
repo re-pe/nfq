@@ -22,10 +22,6 @@ booklist_search:
     path:     /search
     defaults: { _controller: NfqLibraryBundle:BookList:search }
 
-booklist_frmsrch:
-    path:     /frmsrch
-    defaults: { _controller: NfqLibraryBundle:BookList:frmsrch }
-
-booklist_search_keyword:
-    path:     /search/{keyword}
+booklist_search_str:
+    path:     /search/{str}
     defaults: { _controller: NfqLibraryBundle:BookList:search }

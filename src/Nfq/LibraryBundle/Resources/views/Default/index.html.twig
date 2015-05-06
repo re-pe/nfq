@@ -15,22 +15,22 @@
 <script>
    function setHref(id){
        if (id.value === ''){
-           document.getElementById('rediect').setAttribute("href", '../app_dev.php/search');
+           document.getElementById('redirect').setAttribute("href", '../app_dev.php/search');
        } else {
-           var keyword = '../app_dev.php/search/' + id.value;
+           var keyword = '../app_dev.php/search?str=' + id.value;
            document.getElementById('redirect').setAttribute("href", keyword);
        }
    }
 </script>
 <p>
-    <input type="text" id="keyword" oninput='setHref(this)' />
+    <input type="text" id="keyword1" name="keyword1" oninput='setHref(this)' />
     <a id="redirect" class="button" href='../app_dev.php/search'>Submit</a>
 </p>
 
 <h3>Second solution (form)</h3>
 <p>
-    <form action="/app_dev.php/frmsrch" method="POST">
-        <input type="text" id="keyword" />
+    <form action="../app_dev.php/search" method="GET">
+        <input type="text" id="keyword2" name="str" />
         <input type="submit" id="submit" value="Submit"/>
     </form>
 </p>

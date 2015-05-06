@@ -40,31 +40,28 @@ class BookListController extends Controller
         return new Response('<html><body><pre>' . $book_data_str . '</pre></body></html>');
     }
     
-    public function searchAction($keyword = '')
+    public function searchAction($str = '')
     {
+        if (!isset($str) || $str === ''){
+            $request = $this->getRequest();
+            $str = $request->query->get('str');
+        }
         $books_rep = $this->getDoctrine()->getRepository('NfqLibraryBundle:Descriptions');
         $query_str = 'SELECT d.id, d.author, d.title, d.coverUrl, d.language, d.description, d.publisher, d.year, d.pageNo, d.isbn 
             FROM NfqLibraryBundle:Descriptions d';
 
-        if (empty($keyword)){
+        if (empty($str)){
             $query = $this->getDoctrine()->getManager()->createQuery($query_str);
         } else {
             $query_str .= ' WHERE d.author LIKE :para OR d.title LIKE :para OR d.description LIKE :para OR d.publisher LIKE :para' ;
             $query = $this->getDoctrine()->getManager()->createQuery($query_str);
-            $query->setParameter('para', '%' . $keyword . '%');
+            $query->setParameter('para', '%' . $str . '%');
         }
 
         //$bookList = $query->getResult();
         $bookList = $query->getArrayResult();
         $book_data_str = print_r($bookList, true);
         return new Response('<html><body><pre>' . $book_data_str . '</pre></body></html>');
-    }
-
-    public function frmsrchAction()
-    {
-        $request = Request::createFromGlobals();
-        $keyword = $request->request->get('keyword');
-        return $this->searchAction($keyword);
     }
 
 } 
